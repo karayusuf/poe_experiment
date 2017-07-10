@@ -1,0 +1,18 @@
+.gradle
+build/
+classes/
+log/
+out/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# IDE excludes
+.idea
+.project
+.classpath
+.settings/
+*.iml
+*.ipr
+*.iws
+
