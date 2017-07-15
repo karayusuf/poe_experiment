@@ -1,6 +1,6 @@
 package path.of.exile.stats;
 
-public enum StatType {
+public enum StatModifierType {
     FLAT_ADD,
     FLAT_INCREASE,
 

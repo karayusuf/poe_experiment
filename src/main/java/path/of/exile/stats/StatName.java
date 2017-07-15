@@ -2,6 +2,9 @@ package path.of.exile.stats;
 
 public enum StatName {
 
-    PhysicalDamage;
+    PhysicalDamage,
+    LightningDamage,
+
+    PhysicalToLightningDamage;
 
 }

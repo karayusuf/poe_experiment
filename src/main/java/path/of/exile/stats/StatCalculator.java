@@ -14,30 +14,30 @@ public final class StatCalculator {
 
     private StatCalculator() { }
 
-    public double getStatValue(final List<Stat> stats) {
-        return (getFlatValue(stats)
-                * (ONE + getAdditiveValue(stats))
-                * getMultiplicitiveValue(stats));
+    public double getStatValue(final List<StatModifier> modifiers) {
+        return (getFlatValue(modifiers)
+                * (ONE + getAdditiveValue(modifiers))
+                * getMultiplicitiveValue(modifiers));
     }
 
-    private double getFlatValue(final List<Stat> stats) {
-        return stats.stream()
-                .filter(Stat::isFlat)
-                .map(Stat::getValue)
+    private double getFlatValue(final List<StatModifier> modifiers) {
+        return modifiers.stream()
+                .filter(StatModifier::isFlat)
+                .map(StatModifier::getValue)
                 .reduce(ZERO, (x, y) -> x + y);
     }
 
-    private double getAdditiveValue(final List<Stat> stats) {
-        return stats.stream()
-                .filter(Stat::isAdditive)
-                .map(Stat::getValue)
+    private double getAdditiveValue(final List<StatModifier> modifiers) {
+        return modifiers.stream()
+                .filter(StatModifier::isAdditive)
+                .map(StatModifier::getValue)
                 .reduce(ONE, (x, y) -> x + y);
     }
 
-    private double getMultiplicitiveValue(final List<Stat> stats) {
-        return stats.stream()
-                .filter(Stat::isMultiplicitive)
-                .map(Stat::getValue)
+    private double getMultiplicitiveValue(final List<StatModifier> modifiers) {
+        return modifiers.stream()
+                .filter(StatModifier::isMultiplicitive)
+                .map(StatModifier::getValue)
                 .reduce(ONE, (x, y) -> x + y);
     }
 
